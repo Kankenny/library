@@ -22,7 +22,7 @@
 // let theHobbit = new Book("The Hobbit", ".R.R. Tolkien", 295, "not read");
 // myLibrary.add(theHobbit);
 
-
+const libraryHTML = document.querySelector(".cards")
 const myLibrary = []
 
 function Book(title, author, pages, isRead){
@@ -37,8 +37,37 @@ function Book(title, author, pages, isRead){
 }
 
 function addBookToLibrary(book){
-    if(!myLibrary.includes(book.title))
-        myLibrary.push(book)
+    if(myLibrary.includes(book.title)){
+        return;
+    }
+
+    myLibrary.push(book)
+}
+
+function createBookElement(book){
+    let card = document.createElement('div')
+    card.setAttribute('class', 'card')
+
+    let titleElement = document.createElement('h3')
+    let authorElement = document.createElement('h5')
+    let pagesElement = document.createElement('h5')
+    let isReadElement = document.createElement('h5')
+
+    titleElement.textContent = `Title: ${book.title}`
+    authorElement.textContent = `Author: ${book.author}`
+    pagesElement.textContent = `Pages: ${book.pages}`
+    isReadElement.textContent = `Is Read: ${book.isRead}`
+
+    card.appendChild(titleElement)
+    card.appendChild(authorElement)
+    card.appendChild(pagesElement)
+    card.appendChild(isReadElement)
+
+    libraryHTML.appendChild(card)
+}
+
+function renderBooks(){
+    myLibrary.map(book => createBookElement(book))
 }
 
 function displayLibraryOverview(){
@@ -56,3 +85,4 @@ addBookToLibrary(starwart)
 addBookToLibrary(spongeboy)
 
 displayLibraryOverview();
+renderBooks();

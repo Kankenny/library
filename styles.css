@@ -1,0 +1,257 @@
+*{
+    border:0;
+    padding:0;
+}
+
+body{
+    font-family: 'EB Garamond', serif;
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.5em;
+    height:100vh;
+    width:100vw;
+    display:grid;
+    grid-template-areas: 
+    "sidenav header header header"
+    "sidenav main main side";
+    margin:0;
+}
+
+.side-nav{
+    grid-area: sidenav;
+    display:flex;
+    flex-direction: column;
+    background: linear-gradient(#e66465, #9198e5);
+    padding:1em;
+    padding-left:1.3em;
+    padding-top:0;
+    border:0;
+    width:16vw;
+    text-shadow: 2px 2px black;
+}
+
+.side-nav > div{
+    display:flex;
+}
+
+.userDashboard, .userSettings{
+    display:flex;
+    flex-direction: column;
+    padding-top:50px;
+    padding-bottom:50px;
+}
+
+.userDashboard{
+    justify-items: center;
+}
+
+.logo, .home, .profile, .messages, .calendar, .tasks, .socials, .settings, .support, .privacy{
+    color:white;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:25px;
+}
+
+.userDashboard > div:hover, .userSettings > div:hover{
+    transform: translateX(75px) scale(1.4);
+    transition:ease-in-out 0.2s;
+}
+
+.header{
+    grid-area: header;
+    display:flex;
+    flex-direction:column;
+    padding:.3em .6em .3em .6em;
+    border-bottom: 2px rgba(225,102,107,.5) solid;
+    height: 12vh;
+    padding-bottom: 10px;
+    line-height: 0;
+    text-shadow: 1px 1px #888888;
+}
+
+.greetings{
+    font-size:large;
+}
+
+.heading{
+    margin:0;
+    padding:0.3em;
+}
+
+.header .fa-regular:hover, .header .fa-solid:hover{
+    transform:scale(1.1);
+    transition:ease-in-out .2s;
+    color: rgba(100,0,100,.5);
+    text-shadow: 1px 1px black;
+}
+
+.headButton{
+    color: white;
+    background-color: rgb(148,149,223);
+    border-radius: 15px;
+    border: 1px #888888 solid;
+    font-weight: bold;
+    font-size: large;
+    width:6em;rgba(100,0,100,.5);
+    height:2em;
+    box-shadow: 1px 1px black;
+}
+
+.headButton:hover{
+    transform:scale(1.1);
+    transition:ease-in-out .2s;
+    background-color: rgba(225,102,107,1);
+    text-shadow: 1px 1px black;
+}
+
+.upHead{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.botHead{
+    display:flex;
+    justify-content: space-between;
+}
+
+.upRightHead, .botLeftHead, .botRightHead{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    gap:20px;
+}
+
+.botLeftHeadText{
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.mainContent{
+    grid-area: main;
+    display:flex;
+    flex-direction: column;
+    padding:15px;
+    width:auto;
+    overflow: scroll;
+}
+
+.cards{
+    display:grid;
+    gap:15px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px lightslategray solid;
+    border-radius: 10px;
+    padding:10px;
+    box-shadow: 4px 4px #888888;
+}
+
+.cardText{
+    margin-bottom: 2em;
+}
+
+.cardText h4{
+    margin:.3em;
+    margin-bottom: 2em;
+}
+
+.description{
+    font-size: 0.9em;
+    text-indent: 2em;
+    text-align: justify;
+}
+
+
+.card:hover{
+    background-color: rgb(148,149,223);
+    box-shadow: 4px 4px black;
+    color: white;
+    transform:scale(1.03);
+    transition:ease 0.25s;
+    text-shadow: 1.5px 1.5px black;
+}
+
+.cardActions{
+    display:flex;
+    justify-content: flex-end;
+    gap:20px;
+}
+
+.sideTitle{
+    font-weight: bold;
+}
+
+.sideDesc{
+    text-indent: 2em;
+    text-align: justify;
+}
+
+.sideDesc, .userTitle{
+    font-size:0.7em;
+}
+
+.sideContent{
+    grid-area:side;
+    display:flex;
+    flex-direction: column;
+    width:17vw;
+    padding-left:0.5em;
+    padding-right:0.5em;
+    margin-top:0.8em;
+    gap:1em;
+}
+
+.updates, .trends{
+    display:flex;
+    flex-direction:column;
+    border: 1px lightslategray solid;
+    padding:15px;
+    box-shadow: 2px 2px #888888;
+}
+
+.update, .trend{
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.trend{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:5em;
+    line-height: 0.7em;
+    border: 1px solid rgb(148,149,223);
+    gap:20px;
+}
+
+.trend > .fa-solid{
+    width:1.5em;
+    height:auto;
+}
+
+.trend > .fa-solid:hover{
+    transform:scale(1.2);
+    transition:ease-in-out .2s;
+    color: rgba(100,0,100,.5);
+    text-shadow: 1px 1px black;
+}
+
+.userInfo{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.username{
+    font-size: .8em;
+    font-weight: bold;
+}
+
+.userTitle{
+    margin:0;
+}
