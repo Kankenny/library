@@ -12,8 +12,8 @@ body{
     min-width:75vw;
     display:grid;
     grid-template-areas: 
-    "sidenav header header header header header header header header header"
-    "sidenav main main main main main main main main side";
+    "sidenav header header"
+    "sidenav main side";
     margin:0;
     overflow-x:hidden;
 }
@@ -27,6 +27,7 @@ body{
     border:0;
     margin:0;
     width:10vw;
+    min-width: fit-content;
     text-shadow: 2px 2px black;
 }
 
@@ -53,8 +54,14 @@ body{
     gap:1em;
 }
 
-a:link, a:visited{
+a{
+   color: rgba(148,149,223, 0.7);
+   text-decoration: none;
+}
+
+.side-nav a:link, .side-nav a:visited{
     text-decoration: none;
+    color:white;
 }
 
 .userDashboard > div:hover, .userSettings > div:hover{
@@ -69,6 +76,7 @@ a:link, a:visited{
     padding: 1em 1.5em 1em 1.5em;
     border-bottom: 1px #e66465 solid;
     width: auto;
+    min-width: fit-content;
     height: max-content;
     flex: 1;
     line-height: 0;
@@ -139,15 +147,15 @@ a:link, a:visited{
     flex-basis: 1;
     flex-direction: column;
     padding:15px;
-    min-width:auto;
+    min-width:fit-content;
     width:auto;
     overflow: scroll;
 }
 
 .cards{
-    display:grid;
+    display:flex;
+    flex-wrap: wrap;
     gap:15px;
-    grid-template-columns: repeat(4, 1fr);
 }
 
 .cards > i{
@@ -155,18 +163,18 @@ a:link, a:visited{
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size: clamp(10rem, 17.5vw, 15rem); 
+    font-size:15rem;
 }
 
 .card{
-    display:flex;
+    display:inline-flex;
     flex:1;
     flex-direction: column;
     justify-content: space-between;
     border: 1px lightslategray solid;
     border-radius: 10px;
-    min-width:390px;
-    flex-wrap: wrap;
+    min-width:312px;
+    max-width: max-content;
     padding:15px;
     box-shadow: 4px 4px #888888;
 }
@@ -221,6 +229,7 @@ a:link, a:visited{
     flex-shrink: 0;
     flex-direction: column;
     width:auto;
+    min-width: fit-content;
     padding-left:0.5em;
     padding-right:0.5em;
     margin-top:0.8em;
