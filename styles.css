@@ -145,6 +145,14 @@ a:link, a:visited{
     grid-template-columns: 1fr 1fr;
 }
 
+.cards > i{
+    color: #e66465;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10em;
+}
+
 .card{
     display:flex;
     flex-direction: column;
