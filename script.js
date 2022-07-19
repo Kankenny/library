@@ -46,22 +46,27 @@ function addBookToLibrary(book){
 
 function createBookElement(book){
     let card = document.createElement('div')
+    let cardText = document.createElement("div")
+
     card.setAttribute('class', 'card')
+    cardText.setAttribute('class', 'cardText')
 
     let titleElement = document.createElement('h3')
-    let authorElement = document.createElement('h5')
-    let pagesElement = document.createElement('h5')
-    let isReadElement = document.createElement('h5')
+    let authorElement = document.createElement('h6')
+    let pagesElement = document.createElement('h6')
+    let isReadElement = document.createElement('h6')
 
     titleElement.textContent = `Title: ${book.title}`
     authorElement.textContent = `Author: ${book.author}`
     pagesElement.textContent = `Pages: ${book.pages}`
     isReadElement.textContent = `Is Read: ${book.isRead}`
 
-    card.appendChild(titleElement)
-    card.appendChild(authorElement)
-    card.appendChild(pagesElement)
-    card.appendChild(isReadElement)
+    cardText.appendChild(titleElement)
+    cardText.appendChild(authorElement)
+    cardText.appendChild(pagesElement)
+    cardText.appendChild(isReadElement)
+
+    card.appendChild(cardText)
 
     libraryHTML.appendChild(card)
 }
@@ -78,11 +83,12 @@ function displayLibraryOverview(){
 let theHobbit = new Book("The Hobbit", ".R.R. Tolkien", 295, "not read")
 let starwart = new Book("The 123bit", ".R.R. Tolkien", 295, "not read")
 let spongeboy = new Book("The333bt", ".R.R. Tolkien", 295, "not read")
-let test = new Book("The Hobbit", ".R.R. Tolkien", 295, "not read")
+let teest = new Book("The Ho23b3bit", ".R.32R. Tolkien", 2395, "not read")
 
 addBookToLibrary(theHobbit)
 addBookToLibrary(starwart)
 addBookToLibrary(spongeboy)
+addBookToLibrary(teest)
 
 displayLibraryOverview();
 renderBooks();
