@@ -44,7 +44,7 @@ body{
     justify-items: center;
 }
 
-.logo, .home, .profile, .messages, .calendar, .tasks, .socials, .settings, .support, .privacy{
+.logo, .home, .profile, .library, .messages, .calendar, .tasks, .socials, .settings, .support, .privacy{
     color:white;
     display:flex;
     justify-content: flex-start;
@@ -96,7 +96,7 @@ a:link, a:visited{
     border: 1px #888888 solid;
     font-weight: bold;
     font-size: large;
-    width:6em;rgba(100,0,100,.5);
+    width:6em rgba(100,0,100,.5);
     height:2em;
     box-shadow: 1px 1px black;
 }
