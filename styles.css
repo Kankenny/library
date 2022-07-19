@@ -52,6 +52,10 @@ body{
     gap:25px;
 }
 
+a:link, a:visited{
+    text-decoration: none;
+}
+
 .userDashboard > div:hover, .userSettings > div:hover{
     transform: translateX(75px) scale(1.4);
     transition:ease-in-out 0.2s;
