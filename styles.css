@@ -152,6 +152,35 @@ a{
     overflow: scroll;
 }
 
+.addForm{
+    background-color: rgba(225,102,107,.6);
+}
+
+.addForm input{
+    border-radius: 5px;
+    height: 2em;
+}
+
+.create{
+    display:flex;
+    color: green;
+}
+
+.exit{
+    display:flex;
+    justify-content: flex-end;
+    color: red;
+}
+
+.bottomForm{
+    display:flex;
+    justify-content: space-between;
+}
+
+#pages{
+    width:6rem;
+}
+
 .cards{
     display:flex;
     flex-wrap: wrap;
@@ -174,6 +203,7 @@ a{
     border: 1px lightslategray solid;
     border-radius: 10px;
     min-width:312px;
+    min-height:312px;
     max-width: max-content;
     padding:15px;
     box-shadow: 4px 4px #888888;

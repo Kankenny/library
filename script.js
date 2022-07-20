@@ -22,8 +22,66 @@
 // let theHobbit = new Book("The Hobbit", ".R.R. Tolkien", 295, "not read");
 // myLibrary.add(theHobbit);
 
-const libraryHTML = document.querySelector(".cards")
-const myLibrary = []
+let addButton = document.querySelector(".addButton")
+let libraryHTML = document.querySelector(".cards")
+let myLibrary = []
+
+addButton.addEventListener('click', () => { 
+    let form = document.createElement('form')
+    form.setAttribute('class', 'card addForm')
+
+    let labelTitle = createFormLabel('text', 'title', 'Title:')
+    let inputTitle = createFormInput('text', 'title')
+    let labelAuthor = createFormLabel('text', 'author', 'Author:')
+    let inputAuthor = createFormInput('text', 'author')
+    let labelPages = createFormLabel('number', 'pages', 'Pages:')
+    let inputPages = createFormInput('number', 'pages')
+    let labelIsRead = createFormLabel('checkbox', 'isRead', 'Is Read:')
+    let inputIsRead = createFormInput('checkbox', 'isRead')
+
+    let bottomForm = document.createElement('div')
+    bottomForm.setAttribute('class', 'bottomForm')
+    bottomForm.appendChild(labelPages)
+    bottomForm.appendChild(inputPages)
+    bottomForm.appendChild(labelIsRead)
+    bottomForm.appendChild(inputIsRead)
+
+    let exitButton = document.createElement('i')
+    exitButton.setAttribute('class', 'fa-solid fa-xmark formButtons exit')
+    let createButton = document.createElement('i')
+    createButton.setAttribute('class', 'fa-solid fa-plus formButtons create')
+
+    form.appendChild(exitButton)
+    form.appendChild(labelTitle)
+    form.appendChild(inputTitle)
+    form.appendChild(labelAuthor)
+    form.appendChild(inputAuthor)
+    form.appendChild(bottomForm)
+    form.appendChild(createButton)
+
+    libraryHTML.prepend(form)
+
+    let createBookButton = document.querySelector('.create')
+    let exitBookButton = document.querySelector('.exit')
+
+    createBookButton.addEventListener('click', () => {
+        let titleInput = (inputTitle.value != '') ? inputTitle.value : 'Unknown'
+        let authorInput = (inputAuthor.value != '') ? inputAuthor.value : 'Anonymous'
+        let pagesInput = (inputPages.value != '') ? inputPages.value : 'Invalid'
+        let isReadInput = (inputIsRead.value != '') ? inputIsRead.checked : 'Invalid'     
+
+        let book = new Book(titleInput, authorInput, pagesInput, isReadInput)
+
+        createBookElement(book)
+        addBookToLibrary(book)
+        libraryHTML.removeChild(form)
+    })
+
+    exitBookButton.addEventListener('click', () => {
+        libraryHTML.removeChild(form)
+    })
+})
+
 
 function Book(title, author, pages, isRead){
     this.title = title
@@ -78,8 +136,24 @@ function renderBooks(){
 function displayLibraryOverview(){
     myLibrary.forEach(book => console.log(book.title))
 }
-  
 
+
+
+function createFormLabel(inputType, id, name){
+    let label = document.createElement('label')
+    label.textContent = name
+    label.setAttribute('for', inputType)
+    return label
+}
+
+function createFormInput(inputType, id){
+    let input = document.createElement('input')
+    input.setAttribute('type', inputType)
+    input.setAttribute('id', id)
+    return input
+}
+
+  
 let theHobbit = new Book("The Hobbit", ".R.R. Tolkien", 295, "not read")
 let starwart = new Book("The 123bit", ".R.R. Tolkien", 295, "not read")
 let spongeboy = new Book("The333bt", ".R.R. Tolkien", 295, "not read")
@@ -89,6 +163,6 @@ addBookToLibrary(theHobbit)
 addBookToLibrary(starwart)
 addBookToLibrary(spongeboy)
 addBookToLibrary(teest)
+renderBooks()
 
-displayLibraryOverview();
-renderBooks();
+displayLibraryOverview()
