@@ -82,7 +82,6 @@ addButton.addEventListener('click', () => {
     })
 })
 
-
 function Book(title, author, pages, isRead){
     this.title = title
     this.author = author
@@ -136,8 +135,6 @@ function renderBooks(){
 function displayLibraryOverview(){
     myLibrary.forEach(book => console.log(book.title))
 }
-
-
 
 function createFormLabel(inputType, id, name){
     let label = document.createElement('label')
