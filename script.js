@@ -93,6 +93,15 @@ function createBookElement(book){
     let pagesElement = document.createElement('h6')
     let isReadElement = document.createElement('h6')
 
+    let editButton = document.createElement('i')
+    let deleteButton = document.createElement('i')
+    editButton.setAttribute('class', 'fa-solid fa-pen-to-square')
+    deleteButton.setAttribute('class', 'fa-solid fa-delete-left')
+    let createBookButtons = document.createElement('div')
+    createBookButtons.setAttribute('class', 'cardActions')
+    createBookButtons.appendChild(editButton)
+    createBookButtons.appendChild(deleteButton)
+
     titleElement.textContent = `Title: ${book.title}`
     authorElement.textContent = `Author: ${book.author}`
     pagesElement.textContent = `Pages: ${book.pages}`
@@ -104,6 +113,7 @@ function createBookElement(book){
     cardText.appendChild(isReadElement)
 
     card.appendChild(cardText)
+    card.append(createBookButtons)
 
     libraryHTML.appendChild(card)
 }
