@@ -1,32 +1,12 @@
-// const myLibrary = [];
-
-// function createBookElement(type, content, className){
-//     const element = document.createElement(type);
-//     element.setAttribute("class",  className);
-//     return element;
-// }
-
-// function createBookItem(book, index){
-//     const bookItem = document.createElement("div");
-//     bookItem.setAttribute("id", index);
-//     bookItem.setAttribute("key", index);
-//     bookItem.setAttribute("class", "card book");
-
-//     bookItem.appendChild(createBookElement("h1", `Title: ${book.title}`, "book-title"));
-//     bookItem.appendChild(createBookElement("h3", `Author: ${book.author}`, "book-author"));
-//     bookItem.appendChild(createBookElement("h3", `Pages: ${book.pages}`, "book-pages"));
-//     bookItem.appendChild(createBookElement("h3", `Is Read?: ${book.isRead}`, "book-isRead"));
-// }
-
-
-// let theHobbit = new Book("The Hobbit", ".R.R. Tolkien", 295, "not read");
-// myLibrary.add(theHobbit);
-
 let addButton = document.querySelector(".addButton")
 let libraryHTML = document.querySelector(".cards")
 let myLibrary = []
 
 addButton.addEventListener('click', () => { 
+    if(libraryHTML.firstChild == document.querySelector('.addForm')){
+        return;
+    }
+
     let form = document.createElement('form')
     form.setAttribute('class', 'card addForm')
 
@@ -160,6 +140,5 @@ addBookToLibrary(theHobbit)
 addBookToLibrary(starwart)
 addBookToLibrary(spongeboy)
 addBookToLibrary(teest)
-renderBooks()
 
 displayLibraryOverview()
