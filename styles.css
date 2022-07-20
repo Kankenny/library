@@ -175,6 +175,12 @@ a{
 .bottomForm{
     display:flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+#isRead{
+    height:2rem;
+    width:2rem;
 }
 
 #pages{

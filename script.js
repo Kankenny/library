@@ -36,7 +36,7 @@ addButton.addEventListener('click', () => {
     let inputAuthor = createFormInput('text', 'author')
     let labelPages = createFormLabel('number', 'pages', 'Pages:')
     let inputPages = createFormInput('number', 'pages')
-    let labelIsRead = createFormLabel('checkbox', 'isRead', 'Is Read:')
+    let labelIsRead = createFormLabel('checkbox', 'isRead', 'Is Read?:')
     let inputIsRead = createFormInput('checkbox', 'isRead')
 
     let bottomForm = document.createElement('div')
@@ -68,7 +68,7 @@ addButton.addEventListener('click', () => {
         let titleInput = (inputTitle.value != '') ? inputTitle.value : 'Unknown'
         let authorInput = (inputAuthor.value != '') ? inputAuthor.value : 'Anonymous'
         let pagesInput = (inputPages.value != '') ? inputPages.value : 'Invalid'
-        let isReadInput = (inputIsRead.value != '') ? inputIsRead.checked : 'Invalid'     
+        let isReadInput = (inputIsRead.checked) ? 'Finished' : 'Unfinished'  
 
         let book = new Book(titleInput, authorInput, pagesInput, isReadInput)
 
@@ -117,7 +117,7 @@ function createBookElement(book){
     titleElement.textContent = `Title: ${book.title}`
     authorElement.textContent = `Author: ${book.author}`
     pagesElement.textContent = `Pages: ${book.pages}`
-    isReadElement.textContent = `Is Read: ${book.isRead}`
+    isReadElement.textContent = `Status: ${book.isRead}`
 
     cardText.appendChild(titleElement)
     cardText.appendChild(authorElement)
@@ -154,10 +154,10 @@ function createFormInput(inputType, id){
 }
 
   
-let theHobbit = new Book("The Hobbit", ".R.R. Tolkien", 295, "not read")
-let starwart = new Book("The 123bit", ".R.R. Tolkien", 295, "not read")
-let spongeboy = new Book("The333bt", ".R.R. Tolkien", 295, "not read")
-let teest = new Book("The Ho23b3bit", ".R.32R. Tolkien", 2395, "not read")
+let theHobbit = new Book("The Hobbit", ".R.R. Tolkien", 295, "Finished")
+let starwart = new Book("The 123bit", ".R.R. Tolkien", 295, "Unfinished")
+let spongeboy = new Book("The333bt", ".R.R. Tolkien", 295, "Finished")
+let teest = new Book("The Ho23b3bit", ".R.32R. Tolkien", 2395, "Finished")
 
 addBookToLibrary(theHobbit)
 addBookToLibrary(starwart)
