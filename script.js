@@ -1,6 +1,7 @@
 let addButton = document.querySelector(".addButton")
 let libraryHTML = document.querySelector(".cards")
 let myLibrary = []
+let bookIndex = 0
 
 addButton.addEventListener('click', () => { 
     if(libraryHTML.firstChild == document.querySelector('.addForm')){
@@ -52,8 +53,11 @@ addButton.addEventListener('click', () => {
 
         let book = new Book(titleInput, authorInput, pagesInput, isReadInput)
 
-        createBookElement(book)
-        addBookToLibrary(book)
+        if(!addBookToLibrary(book)){
+            return
+        }
+        
+        createBookElement(book, bookIndex)
         libraryHTML.removeChild(form)
     })
 
@@ -67,6 +71,7 @@ function Book(title, author, pages, isRead){
     this.author = author
     this.pages = pages 
     this.isRead = isRead
+    this.bookIndex = bookIndex
 
     this.info = function(){
         return `${title} by ${author}, ${pages} pages, ${isRead}`
@@ -74,18 +79,22 @@ function Book(title, author, pages, isRead){
 }
 
 function addBookToLibrary(book){
-    if(myLibrary.includes(book.title)){
-        return;
-    }
-
+    if (myLibrary.some(existingBook => existingBook.title === book.title)) {
+        alert("Book already exists in the library!")
+        return false
+      }
+      
+    bookIndex++
     myLibrary.push(book)
+    return true
 }
 
-function createBookElement(book){
+function createBookElement(book, bookIndex){
     let card = document.createElement('div')
     let cardText = document.createElement("div")
 
     card.setAttribute('class', 'card')
+    card.setAttribute('id', book.title)
     cardText.setAttribute('class', 'cardText')
 
     let titleElement = document.createElement('h3')
@@ -115,11 +124,27 @@ function createBookElement(book){
     card.appendChild(cardText)
     card.append(createBookButtons)
 
+    editButton.setAttribute('id', book.title)
+    deleteButton.setAttribute('id', book.title)
+
+
+    editButton.addEventListener('click', () => {
+        libraryHTML.children = function(){
+            alert(index)
+        }
+    })
+
+    deleteButton.addEventListener('click', (e) => {
+        console.log(e.target.id) 
+        removeBookFromLibrary(e.target.id)
+        myLibrary.splice(e.target.index, 1)    
+    })
+
     libraryHTML.appendChild(card)
 }
 
-function renderBooks(){
-    myLibrary.map(book => createBookElement(book))
+function removeBookFromLibrary(id){
+    document.getElementById(id).outerHTML = "";
 }
 
 function displayLibraryOverview(){
@@ -139,16 +164,3 @@ function createFormInput(inputType, id){
     input.setAttribute('id', id)
     return input
 }
-
-  
-let theHobbit = new Book("The Hobbit", ".R.R. Tolkien", 295, "Finished")
-let starwart = new Book("The 123bit", ".R.R. Tolkien", 295, "Unfinished")
-let spongeboy = new Book("The333bt", ".R.R. Tolkien", 295, "Finished")
-let teest = new Book("The Ho23b3bit", ".R.32R. Tolkien", 2395, "Finished")
-
-addBookToLibrary(theHobbit)
-addBookToLibrary(starwart)
-addBookToLibrary(spongeboy)
-addBookToLibrary(teest)
-
-displayLibraryOverview()

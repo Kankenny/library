@@ -177,11 +177,6 @@ a{
     transition:.3s;
 }
 
-.addForm .exit:hover{
-    transform: translateX(-6.3em) scale(2);
-    transition:.3s;
-}
-
 .bottomForm{
     display:flex;
     justify-content: space-between;
