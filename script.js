@@ -116,6 +116,8 @@ function createBookElement(book, bookIndex){
     pagesElement.textContent = `Pages: ${book.pages}`
     isReadElement.textContent = `Status: ${book.isRead}`
 
+    isReadElement.setAttribute('id', `${book.title} edit`)
+
     cardText.appendChild(titleElement)
     cardText.appendChild(authorElement)
     cardText.appendChild(pagesElement)
@@ -128,14 +130,13 @@ function createBookElement(book, bookIndex){
     deleteButton.setAttribute('id', book.title)
 
 
-    editButton.addEventListener('click', () => {
-        libraryHTML.children = function(){
-            alert(index)
-        }
+    editButton.addEventListener('click', (e) => {
+        let cardIsRead = document.getElementById(`${e.target.id} edit`)
+        cardIsRead.textContent = (cardIsRead.textContent === "Status: Finished")
+         ? "Status: Unfinished" : "Status: Finished"
     })
 
     deleteButton.addEventListener('click', (e) => {
-        console.log(e.target.id) 
         removeBookFromLibrary(e.target.id)
         myLibrary.splice(e.target.index, 1)    
     })
