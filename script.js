@@ -93,7 +93,7 @@ function createBookElement(book, bookIndex){
     let card = document.createElement('div')
     let cardText = document.createElement("div")
 
-    card.setAttribute('class', 'card')
+    card.setAttribute('class', `card ${book.isRead}`)
     card.setAttribute('id', book.title)
     cardText.setAttribute('class', 'cardText')
 
@@ -134,6 +134,10 @@ function createBookElement(book, bookIndex){
         let cardIsRead = document.getElementById(`${e.target.id} edit`)
         cardIsRead.textContent = (cardIsRead.textContent === "Status: Finished")
          ? "Status: Unfinished" : "Status: Finished"
+
+        let card = document.getElementById(e.target.id)
+        card.classList.toggle("Finished")
+        card.classList.toggle("Unfinished")
     })
 
     deleteButton.addEventListener('click', (e) => {

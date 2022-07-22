@@ -230,6 +230,14 @@ a{
     margin-bottom: 2em;
 }
 
+.Finished{
+    background: lightgreen;
+}
+
+.Unfinished{
+    background: #FF7F7F;
+}
+
 .description{
     font-size: 0.9em;
     text-indent: 2em;
